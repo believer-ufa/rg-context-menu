@@ -42,13 +42,17 @@ this.menu = {
 }
 ```
 
-Or you can use the `rg-context-menu-item` child tag
+You can also use the `rg-context-menu-item` child tag
 
 ```html
-<rg-context-menu-item onselect="{ parent.itemSelected }" inactive="false">
-  <strong>View source</strong>
-</rg-context-menu-item>
+<rg-context-menu id="myMenu" menu="{ menu }">
+  <rg-context-menu-item onselect="{ parent.itemSelected }" inactive="false">
+    <strong>View source</strong>
+  </rg-context-menu-item>
+</rg-context-menu>
 ```
+
+You can use the `menu` attribute as well as the `rg-context-menu-item` tag as the same time.  
 
 - `onopen` will fire when the menu appears
 - `onclose` fires when the menu is dismissed
