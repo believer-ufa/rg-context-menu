@@ -30,16 +30,24 @@ this.menu = {
   },
   items: [{
 		content: '<strong>View source</strong>',
-		onselect: itemSelected
+		onselect: function (e) { ... }
 	}, {
 		text: 'Save as...',
-		disabled: true,
-		onselect: itemSelected
+		inactive: true,
+		onselect: function (e) { ... }
 	}, {
 		text: 'Reload',
-		onselect: itemSelected
+		onselect: function (e) { ... }
 	}]
 }
+```
+
+Or you can use the `rg-context-menu-item` child tag
+
+```html
+<rg-context-menu-item onselect="{ parent.itemSelected }" inactive="false">
+  <strong>View source</strong>
+</rg-context-menu-item>
 ```
 
 - `onopen` will fire when the menu appears
@@ -47,5 +55,5 @@ this.menu = {
 - `items` is the array of items to display in the popup list
 - `items.content` is the HTML content of the item
 - `items.text` is the plain text content of the item, if specified the tag will ignore `content` and use `text`
-- `items.disabled` set a disabled class and prevents events
+- `items.inactive` set a inactive class and prevents events
 - `items.onselect` fires when an item is clicked on. The menu will also automatically close on select

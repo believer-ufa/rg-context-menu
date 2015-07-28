@@ -8,7 +8,11 @@
 		Section 2
 	</div>
 
-	<rg-context-menu id="myMenu" menu="{ menu }"></rg-context-menu>
+	<rg-context-menu id="myMenu">
+		<rg-context-menu-item onselect="{ parent.itemSelected }">
+			Custom <strong>text</strong>
+		</rg-context-menu-item>
+	</rg-context-menu>
 
 	<rg-context-menu id="mySecondMenu" menu="{ secondMenu }"></rg-context-menu>
 
@@ -38,7 +42,7 @@
 				onselect: itemSelected
 			}, {
 				text: 'Save as...',
-				disabled: true,
+				inactive: true,
 				onselect: itemSelected
 			}, {
 				text: 'Reload',
@@ -51,6 +55,8 @@
 			console.log(e);
 			_this.update();
 		}
+
+		_this.itemSelected = itemSelected;
 
 	</script>
 

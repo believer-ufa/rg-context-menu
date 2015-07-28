@@ -2,16 +2,18 @@
 
 	<div class="dropdown" if="{ opts.menu.opened }" style="{ style }">
 		<div class="list">
-			<div each="{ opts.menu.items }" class="item { disabled: disabled }" onclick="{ selectItem }">
+			<div each="{ opts.menu.items }" class="item { inactive: inactive }" onclick="{ selectItem }">
 				<rg-context-menu-raw if="{ content && !text }" content="{ content }"></rg-context-menu-raw>
 				<span if="{ text }">{ text }</span>
 			</div>
+			<yield/>
 		</div>
 	</div>
 
 	<script>
 
 		var _this = this;
+		opts.menu = opts.menu || {};
 
 		function handleClickOutside(e) {
 			if (!_this.root.contains(e.target)) {
@@ -63,7 +65,7 @@
 		};
 
 		_this.selectItem = function (e) {
-			if (!e.item.disabled) {
+			if (!e.item.inactive) {
 				if (e.item.onselect) {
 					e.item.onselect(e.item);
 				}
@@ -107,12 +109,12 @@
 			background-color: #f3f3f3;
 		}
 
-		.item.disabled {
+		.item.inactive {
 			color: #8a8a8a;
 			font-style: italic;
 		}
 
-		.item.disabled:hover {
+		.item.inactive:hover {
 			background-color: #fff;
 		}
 
