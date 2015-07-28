@@ -3,7 +3,8 @@
 	<div class="dropdown" if="{ opts.menu.opened }" style="{ style }">
 		<div class="list">
 			<div each="{ opts.menu.items }" class="item { disabled: disabled }" onclick="{ selectItem }">
-				{ text }
+				<rg-context-menu-raw if="{ content && !text }" content="{ content }"></rg-context-menu-raw>
+				<span if="{ text }">{ text }</span>
 			</div>
 		</div>
 	</div>

@@ -34,7 +34,7 @@
 			},
 			onselect: itemSelected,
 			items: [{
-				text: 'View source',
+				content: '<strong>View source</strong>',
 				onselect: itemSelected
 			}, {
 				text: 'Save as...',

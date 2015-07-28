@@ -29,7 +29,7 @@ this.menu = {
     console.log(e);
   },
   items: [{
-		text: 'View source',
+		content: '<strong>View source</strong>',
 		onselect: itemSelected
 	}, {
 		text: 'Save as...',
@@ -45,6 +45,7 @@ this.menu = {
 - `onopen` will fire when the menu appears
 - `onclose` fires when the menu is dismissed
 - `items` is the array of items to display in the popup list
-- `items.text` is the text of the item
+- `items.content` is the HTML content of the item
+- `items.text` is the plain text content of the item, if specified the tag will ignore `content` and use `text`
 - `items.disabled` set a disabled class and prevents events
 - `items.onselect` fires when an item is clicked on. The menu will also automatically close on select

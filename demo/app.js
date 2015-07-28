@@ -20,7 +20,7 @@ riot.tag('demo-app', '<div class="clickable-area" rg-context-menu="myMenu"> Sect
 			},
 			onselect: itemSelected,
 			items: [{
-				text: 'View source',
+				content: '<strong>View source</strong>',
 				onselect: itemSelected
 			}, {
 				text: 'Save as...',
