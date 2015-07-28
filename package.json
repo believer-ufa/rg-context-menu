@@ -1,0 +1,38 @@
+{
+  "name": "riotgear-context-menu",
+  "version": "1.0.0",
+  "description": "Right click popup menu",
+  "main": "dist/rg-context-menu.min.js",
+  "scripts": {
+    "lint": "jshint . --exclude-path=.gitignore",
+    "riot": "riot src dist/rg-context-menu.js",
+    "postriot": "riot demo",
+    "uglify": "uglifyjs --output dist/rg-context-menu.min.js -- dist/rg-context-menu.js",
+    "build": "npm run riot && npm run uglify"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RiotGear/rg-context-menu.git"
+  },
+  "keywords": [
+    "riotjs",
+    "riot",
+    "component",
+    "right click",
+    "menu"
+  ],
+  "author": "Gregory Pratt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RiotGear/rg-context-menu/issues"
+  },
+  "homepage": "https://github.com/RiotGear/rg-context-menu",
+  "devDependencies": {
+    "jshint": "~2.7.0",
+    "riot": "~2.2.2",
+    "uglify-js": "~2.4.21"
+  }
+}
