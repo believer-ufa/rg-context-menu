@@ -1,6 +1,6 @@
 <rg-context-menu>
 
-	<div class="dropdown" if="{ opts.menu.opened }" style="{ style }">
+	<div class="dropdown" show="{ opts.menu.opened }">
 		<div class="list">
 			<div each="{ opts.menu.items }" class="item { inactive: inactive }" onclick="{ selectItem }">
 				<rg-context-menu-raw if="{ content && !text }" content="{ content }"></rg-context-menu-raw>
@@ -27,11 +27,30 @@
 
 		function openMenu(e) {
 			e.preventDefault();
-			_this.style = 'left: ' + e.pageX + 'px; top: ' + e.pageY + 'px;';
 			if (opts.menu.onopen) {
 				opts.menu.onopen(e);
 			}
 			opts.menu.opened = true;
+			// Need to update the page with the
+			// rendered element to work with it
+			_this.update();
+
+			var x = e.pageX;
+			var y = e.pageY;
+			var dd = _this.root.querySelector('.dropdown');
+			var ddRect = dd.getBoundingClientRect();
+			// Handle horizontal boundary
+			if (x > window.innerWidth - ddRect.width) { // Its too close to the edge!
+				x = window.innerWidth - ddRect.width;
+			}
+			dd.style.left = x + 'px';
+
+			// Handle vertical boundary
+			if (y > window.innerHeight - ddRect.height) { // Its too close to the edge!
+				y = window.innerHeight - ddRect.height;
+			}
+			dd.style.top = y + 'px';
+
 			_this.update();
 		}
 
