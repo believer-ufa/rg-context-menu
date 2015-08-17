@@ -40,8 +40,8 @@
 			var dd = _this.root.querySelector('.dropdown');
 			var ddRect = dd.getBoundingClientRect();
 			// Handle horizontal boundary
-			if (x > window.innerWidth - ddRect.width) { // Its too close to the edge!
-				x = window.innerWidth - ddRect.width;
+			if (x > (window.innerHeight + window.scrollY) - ddRect.width) { // Its too close to the edge!
+				x = (window.innerHeight + window.scrollY) - ddRect.width;
 			}
 			dd.style.left = x + 'px';
 
@@ -112,6 +112,7 @@
 			-webkit-box-shadow: 0 2px 10px -4px #444;
 			-moz-box-shadow: 0 2px 10px -4px #444;
 			box-shadow: 0 2px 10px -4px #444;
+			z-index: 1;
 		}
 
 		.item {
